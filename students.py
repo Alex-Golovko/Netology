@@ -33,7 +33,7 @@ class Mentor:
 
 
 class Lecturer(Mentor):
-    def __init__(self, name, surname, ):
+    def __init__(self, name, surname):
         super().__init__(name, surname)
         self.courses_attached = []
         self.grades = {}
@@ -45,7 +45,7 @@ class Lecturer(Mentor):
 
 
 class Reviewer(Mentor):
-    def __init__(self, name, surname, ):
+    def __init__(self, name, surname):
         super().__init__(name, surname)
 
     def rate_hw(self, student, course, grade):
