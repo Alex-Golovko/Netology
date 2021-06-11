@@ -18,11 +18,11 @@ class Student:
             return 'Ошибка'
 
     def __str__(self):
-        return f'Имя: {self.name}' \
-               f'Фамилия: {self.surname}' \
-               f'Средняя оценка за домашние задания: {self.grades}' \
-               f'Курсы в процессе изучения: {self.courses_in_progress}' \
-               f'Завершенные курсы: {self.finished_courses}'
+        return f'Имя: {self.name}\n' \
+               f'Фамилия: {self.surname}\n' \
+               f'Средняя оценка за домашние задания: {str(self.grades)}\n' \
+               f'Курсы в процессе изучения: {", ".join(self.courses_in_progress)}\n' \
+               f'Завершенные курсы: {", ".join(self.finished_courses)}'
 
 
 class Mentor:
@@ -39,9 +39,9 @@ class Lecturer(Mentor):
         self.grades = {}
 
     def __str__(self):
-        return f'Имя: {self.name}' \
-               f'Фамилия: {self.surname}' \
-               f'Средняя оценка за лекции: {self.grades}'
+        return f'Имя: {self.name}\n' \
+               f' Фамилия: {self.surname}\n' \
+               f' Средняя оценка за лекции: {str(self.grades)}'
 
 
 class Reviewer(Mentor):
@@ -58,19 +58,23 @@ class Reviewer(Mentor):
             return 'Ошибка'
 
     def __str__(self):
-        return f'Имя: {self.name}' \
+        return f'Имя: {self.name}\n' \
                f'Фамилия: {self.surname}'
 
 
-best_student = Student('Ruoy', 'Eman', 'man')
-best_student.courses_in_progress += ['Python']
+student = Student('Ruoy', 'Eman', 'man')
+student.courses_in_progress += ['Python', 'Git']
+student.finished_courses += ['Введение в программирование']
+student.grades = 10
 
-cool_lecturer = Lecturer('Some', 'Buddy')
-cool_lecturer.courses_attached += ['Python']
+lecturer = Lecturer('Some', 'Buddy')
+lecturer.courses_attached += ['Python']
 reviewer = Reviewer('Some', 'Buddy')
 
-reviewer.rate_hw(best_student, 'Python', 10)
-reviewer.rate_hw(best_student, 'Python', 10)
-reviewer.rate_hw(best_student, 'Python', 10)
+reviewer.rate_hw(student, 'Python', 10)
+reviewer.rate_hw(student, 'Python', 10)
+reviewer.rate_hw(student, 'Python', 10)
 
-print(best_student.grades)
+print(student)
+print(lecturer)
+print(reviewer)
