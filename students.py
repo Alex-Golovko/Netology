@@ -18,9 +18,9 @@ class Student:
         else:
             return 'Ошибка'
 
-    def average_rating(self)- :
+    def average_rating(self):
         grades = []
-0        for grade in self.grades.values():
+        for grade in self.grades.values():
             for i in grade:
                 grades.append(int(i))
         average_grades = sum(grades) / len(grades)
